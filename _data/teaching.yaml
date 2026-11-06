@@ -1,12 +1,7 @@
 # Une entrée par année universitaire, la plus récente en premier.
 # Les totaux horaires sont calculés automatiquement par le site.
-- year: "2025 – 2026"
+- year: "2026 – 2027"
   courses:
-    - { name: "Commande des systèmes linéaires", level: "L3", kind: "TD",  hours: 18, institution: "Université de l'Exemple" }
-    - { name: "Automatique 1",                   level: "L2", kind: "TP",  hours: 24, institution: "Université de l'Exemple" }
+    - { name: "Automatique des systèmes linéaires", level: "M1", kind: "TD,TP",  hours: 32, institution: "CPE Lyon" }
+    - { name: "Traitement des signaux aléatoires", level: "M1", kind: "TP",  hours: 32, institution: "CPE Lyon" }
 
-- year: "2024 – 2025"
-  courses:
-    - { name: "Asservissement et régulation",    level: "M1", kind: "TD",  hours: 12, institution: "Université de l'Exemple" }
-    - { name: "Automatique 1",                   level: "L2", kind: "TP",  hours: 24, institution: "Université de l'Exemple" }
-    - { name: "Projet de fin d'études",          level: "L3", kind: "Projet", hours: 10, institution: "IUT de l'Exemple" }
