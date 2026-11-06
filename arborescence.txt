@@ -1,0 +1,29 @@
+cdurand.github.io/
+├── _config.yml              ← identité et liens (à personnaliser une fois)
+├── _data/
+│   ├── news.yml             ← actualités (page d'accueil)
+│   ├── projects.yml         ← projets de recherche
+│   ├── publications.yml     ← publications
+│   └── teaching.yml         ← cours enseignés
+├── _includes/
+│   ├── header.html          ← bandeau + menu
+│   ├── footer.html
+│   └── publication.html     ← mise en forme d'une référence
+├── _layouts/
+│   └── default.html         ← squelette HTML commun
+├── assets/
+│   ├── css/style.scss       ← style (mode sombre automatique)
+│   ├── js/main.js           ← menu mobile
+│   └── img/photo.jpg        ← votre photo (à ajouter)
+├── index.html               ← accueil (bio + actualités)
+├── recherche.md
+├── publications.md
+├── publications.bib         ← export BibTeX généré automatiquement
+├── enseignement.md
+├── cv.md                    ← + assets/cv.pdf (à ajouter)
+├── contact.md
+├── actualites.md
+├── 404.md
+├── Gemfile                  ← aperçu local (optionnel)
+├── .gitignore
+└── README.md                ← mode d'emploi de mise à jour

@@ -1,0 +1,12 @@
+# Une entrée par année universitaire, la plus récente en premier.
+# Les totaux horaires sont calculés automatiquement par le site.
+- year: "2025 – 2026"
+  courses:
+    - { name: "Commande des systèmes linéaires", level: "L3", kind: "TD",  hours: 18, institution: "Université de l'Exemple" }
+    - { name: "Automatique 1",                   level: "L2", kind: "TP",  hours: 24, institution: "Université de l'Exemple" }
+
+- year: "2024 – 2025"
+  courses:
+    - { name: "Asservissement et régulation",    level: "M1", kind: "TD",  hours: 12, institution: "Université de l'Exemple" }
+    - { name: "Automatique 1",                   level: "L2", kind: "TP",  hours: 24, institution: "Université de l'Exemple" }
+    - { name: "Projet de fin d'études",          level: "L3", kind: "Projet", hours: 10, institution: "IUT de l'Exemple" }

@@ -1,0 +1,40 @@
+---
+layout: default
+title: Accueil
+order: 1
+nav: true
+description: "Page personnelle de Camille Durand, doctorante en automatique."
+---
+
+<section class="intro">
+  <img class="avatar" src="{{ '/assets/img/photo.jpg' | relative_url }}"
+       alt="Photo de {{ site.author }}">
+  <div>
+    <h1>{{ site.author }}</h1>
+    <p class="lead">{{ site.subtitle }}</p>
+    <p>
+      Doctorante en 3<sup>e</sup> année au {{ site.lab }} ({{ site.university }}),
+      sous la direction du Pr. Julien Martin. Mes travaux portent sur la
+      commande prédictive robuste et l'estimation d'état pour les systèmes
+      énergétiques.
+    </p>
+    <p>
+      <a class="btn" href="{{ '/recherche/' | relative_url }}">Recherche</a>
+      <a class="btn" href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a class="btn" href="{{ '/assets/cv.pdf' | relative_url }}">CV (PDF)</a>
+      <a class="btn" href="{{ '/contact/' | relative_url }}">Contact</a>
+    </p>
+  </div>
+</section>
+
+<h2>Actualités</h2>
+<ul class="news">
+  {% assign news = site.data.news | sort: "date" | reverse %}
+  {% for n in news limit: 5 %}
+    <li>
+      <time>{{ n.date | date: "%d/%m/%Y" }}</time>
+      {{ n.text | markdownify | remove: "<p>" | remove: "</p>" }}
+    </li>
+  {% endfor %}
+</ul>
+<p><a href="{{ '/actualites/' | relative_url }}">Toutes les actualités →</a></p>

@@ -1,0 +1,59 @@
+# ─────────────────────────────────────────────────────────────
+#  Une entrée par publication, la plus récente en premier.
+#  type : "Article de revue" | "Article de conférence" |
+#         "Chapitre d'ouvrage" | "Présentation"
+#  Écrivez votre nom EXACTEMENT comme "author" dans _config.yml :
+#  il sera mis en gras automatiquement.
+# ─────────────────────────────────────────────────────────────
+- type: "Article de revue"
+  authors: "Camille Durand, Julien Martin, Alessandro Rossi"
+  title: "Robust tube-based MPC for energy management in islanded microgrids under forecast uncertainty"
+  venue: "Automatica"
+  year: 2026
+  volume: 175
+  pages: "112034"
+  doi: "10.xxxx/j.automatica.2026.112034"   # ← exemple à remplacer
+  pdf: ""
+  arxiv: ""
+  code: ""
+  bibtex: |
+    @article{durand2026tube,
+      author  = {Durand, Camille and Martin, Julien and Rossi, Alessandro},
+      title   = {Robust tube-based {MPC} for energy management in islanded microgrids},
+      journal = {Automatica},
+      volume  = {175},
+      pages   = {112034},
+      year    = {2026}
+    }
+
+- type: "Article de conférence"
+  authors: "Camille Durand, Julien Martin"
+  title: "Distributed state estimation for power networks with bounded uncertainties"
+  venue: "IEEE Conference on Decision and Control (CDC)"
+  year: 2025
+  pages: "1234–1239"
+  doi: ""
+  pdf: ""
+  arxiv: "https://arxiv.org/abs/25xx.xxxxx"   # ← exemple à remplacer
+  code: ""
+  bibtex: |
+    @inproceedings{durand2025distributed,
+      author    = {Durand, Camille and Martin, Julien},
+      title     = {Distributed state estimation for power networks with bounded uncertainties},
+      booktitle = {IEEE Conference on Decision and Control (CDC)},
+      pages     = {1234--1239},
+      year      = {2025}
+    }
+
+- type: "Présentation"
+  authors: "Camille Durand"
+  title: "Commande prédictive robuste : panorama et applications énergétiques"
+  venue: "Journées doctorales de l'automatique"
+  year: 2024
+  bibtex: |
+    @misc{durand2024panorama,
+      author = {Durand, Camille},
+      title  = {Commande pr\'edictive robuste : panorama et applications},
+      year   = {2024},
+      note   = {Journ\'ees doctorales de l'automatique}
+    }

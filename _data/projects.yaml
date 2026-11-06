@@ -1,0 +1,18 @@
+# Une entrée par projet ou collaboration.
+- title: "Commande prédictive robuste d'un micro-réseau insulaire"
+  period: "Oct. 2023 – aujourd'hui"
+  role: "Sujet de thèse"
+  funding: "Contrat doctoral (MESR)"
+  description: >-
+    Conception de commandes prédictives tolérantes aux incertitudes pour
+    coordonner production photovoltaïque, stockage et demande dans un
+    micro-réseau insulaire, avec garanties de stabilité et implémentation
+    temps réel sur banc matériel.
+
+- title: "Séjour de recherche — University of Exemple (Pays-Bas)"
+  period: "Mars – juin 2025"
+  role: "Visite de 3 mois"
+  funding: "Bourse de mobilité de l'école doctorale"
+  description: >-
+    Collaboration sur l'estimation d'état distribuée pour les réseaux
+    électriques, en vue d'une publication commune.

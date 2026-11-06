@@ -1,0 +1,14 @@
+1- Compte GitHub : choisit un identifiant de la forme jbarra
+2- Dépôt : créé un dépôt public nommé exactement jbarra.github.io.
+3- Envoie les fichiers, soit via l'interface web (« uploading an existing file »), soit en ligne de commande :
+
+
+git clone https://github.com/cdurand/cdurand.github.io.git
+cd cdurand.github.io
+# copier ici tous les fichiers du site, puis :
+git add .
+git commit -m "Première version du site"
+git push origin main
+
+4- Vérifie : Settings → Pages doit indiquer « Deploy from a branch » → main / / (root) ; le premier build prend 1 à 2 minutes, puis le site est en ligne et se republie automatiquement à chaque push
+
