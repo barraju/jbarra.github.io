@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     cdurand.github.io — page d'accueil
+     Personnalisez le contenu situé entre <main> et </main>.
+     ============================================================ -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Camille Durand — accueil</title>
+  <meta name="description" content="Page personnelle de Camille Durand, enseignant-chercheur en informatique.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-int">
+    <a class="logo" href="index.html"><span class="accent">Camille</span> Durand</a>
+    <nav>
+      <a href="index.html" class="actif">Accueil</a>
+      <a href="recherche.html">Recherche</a>
+      <a href="enseignement.html">Enseignement</a>
+      <a href="publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="divers.html">Divers</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="apercu">
+    <div class="photo">
+      <!-- Remplacez assets/photo.jpg par votre photo. Sans fichier, l'image
+           se masque automatiquement (voir l'attribut onerror). -->
+      <img src="assets/photo.jpg" alt="Portrait de Camille Durand"
+           onerror="this.style.display='none'">
+    </div>
+    <div>
+      <h1>Camille Durand</h1>
+      <p class="lead">
+        Maître de conférences en informatique<br>
+        Université de Quelque Part — Laboratoire Imaginaire (UMR&nbsp;0000)
+      </p>
+      <p>
+        Mes travaux portent sur les systèmes distribués et l'apprentissage
+        automatique. J'enseigne l'algorithmique, les réseaux et la
+        programmation, de la licence au master.
+      </p>
+      <p>
+        <a href="recherche.html">Mes recherches</a> ·
+        <a href="publications.html">Mes publications</a> ·
+        <a href="cv.html">Mon CV</a>
+      </p>
+    </div>
+  </div>
+
+  <h2>Actualités</h2>
+  <ul>
+    <li><strong>Novembre 2026</strong> — notre article «&nbsp;…&nbsp;» est accepté à la conférence Exemple'26.</li>
+    <li><strong>Septembre 2026</strong> — reprise des cours de <em>Algorithmique avancée</em> (M1).</li>
+    <li><strong>Juin 2026</strong> — soutenance de thèse de A. Martin, que j'ai co-encadrée.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>
+    Bureau 000, bâtiment X — <code>prenom.nom@univ-exemple.fr</code><br>
+    <a href="divers.html">Toutes les coordonnées →</a>
+  </p>
+</main>
+
+<footer>
+  © <span id="annee">2026</span> Camille Durand —
+  <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a>
+</footer>
+<script>document.getElementById("annee").textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
