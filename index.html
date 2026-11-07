@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jules BARRA — accueil</title>
-  <meta name="description" content="Page personnelle de Jules Barra, au LAGEPP (Université de Lyon) : recherche, publications, enseignement et CV.">
-  <link rel="canonical" href="https://cdurand.github.io/">
-  <meta property="og:title" content="Jules BARRA — accueil">
-  <meta property="og:description" content="Recherche, publications, enseignement et CV.">
+  <title>Jules Barra — Home</title>
+  <meta name="description" content="Personal page of Jules Barra, PhD student at LAGEPP (Université de Lyon): research, publications, teaching and CV.">
+  <link rel="canonical" href="https://jbarra.github.io/">
+  <meta property="og:title" content="Jules Barra — Home">
+  <meta property="og:description" content="Research, publications, teaching and CV.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cdurand.github.io/">
-  <meta property="og:image" content="https://cdurand.github.io/assets/photo.jpg">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://jbarra.github.io/">
+  <meta property="og:image" content="https://jbarra.github.io/assets/photo.jpg">
+  <meta property="og:locale" content="en_US">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-  <!-- Si vous préférez zéro requête externe : supprimez les 3 lignes suivantes,
-       les polices système (Georgia / sans-serif) prendront le relais. -->
+  <!-- Optional web fonts: delete the next 3 lines for zero external requests
+       (system fonts Georgia / sans-serif take over). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
-  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="sombre"||t==="clair"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;display=swap">
+  <!-- Apply the saved theme BEFORE first paint (fixes the dark-mode flash) -->
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
   <script type="application/ld+json">
@@ -26,69 +27,67 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jules Barra",
-    "url": "https://cdurand.github.io/",
-    "image": "https://cdurand.github.io/assets/photo.jpg",
-    "jobTitle": "Doctorant",
+    "url": "https://jbarra.github.io/",
+    "image": "https://jbarra.github.io/assets/photo.jpg",
+    "jobTitle": "PhD student",
     "email": "mailto:prenom.nom@univ-exemple.fr",
     "affiliation": { "@type": "Organization", "name": "LAGEPP (UMR0000), Université de Lyon" },
-    "sameAs": [
-      "https://orcid.org/0000-0000-0000-0000",
-      "https://github.com/barraju"
-    ]
+    "sameAs": ["https://orcid.org/0000-0000-0000-0000", "https://github.com/barraju"]
   }
   </script>
 </head>
 <body>
-  <a class="eviter" href="#contenu">Aller au contenu</a>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header>
-    <div class="en-tete">
-      <a class="marque" href="index.html">Jules BARRA</a>
-      <nav aria-label="Navigation principale">
-        <a href="index.html" class="actif" aria-current="page">Accueil</a>
-        <a href="recherche.html">Recherche</a>
-        <a href="enseignement.html">Enseignement</a>
+    <div class="site-header">
+      <a class="brand" href="index.html">Jules Barra</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
         <a href="publications.html">Publications</a>
         <a href="cv.html">CV</a>
-        <a href="divers.html">Divers</a>
-        <button id="bascule-theme" type="button" aria-label="Basculer entre thème clair et sombre">🌙</button>
+        <a href="about.html">About</a>
+        <button id="theme-toggle" type="button" aria-label="Toggle between light and dark theme">🌙</button>
       </nav>
     </div>
   </header>
-  <main id="contenu">
-    <section class="apercu">
-      <img class="portrait" src="assets/photo.jpg" alt="Photo de Jules Barra" width="150" height="150">
+  <main id="content">
+    <section class="intro">
+      <img class="portrait" src="assets/photo.jpg" alt="Photo of Jules Barra" width="150" height="150">
       <div>
-        <p class="role">Doctorant</p>
+        <p class="role">PhD student</p>
         <p class="affiliation">Université de Lyon — LAGEPP (UMR0000)</p>
-        <p class="accroche">Mes travaux portent sur …</p>
-        <p><a href="recherche.html">Mes recherches</a> · <a href="publications.html">Mes publications</a> · <a href="cv.html">Mon CV</a></p>
+        <p class="tagline">My research focuses on …</p>
+        <p><a href="research.html">Research</a> · <a href="publications.html">Publications</a> · <a href="cv.html">CV</a></p>
       </div>
     </section>
 
     <section>
-      <h2>Actualités</h2>
-      <ul class="actus" id="liste-actus">
-        <li><span class="date">Novembre 2026</span> — notre article «…» est accepté à la conférence Exemple'26.</li>
-        <li><span class="date">Septembre 2026</span> — reprise des cours de Algorithmique avancée (M1).</li>
-        <li><span class="date">Juin 2026</span> — soutenance de thèse de A. Martin, que j'ai co-encadrée.</li>
+      <h2>News</h2>
+      <ul class="news" id="news-list">
+        <li><span class="date">November 2026</span> — our paper “…” was accepted at the Exemple'26 conference.</li>
+        <li><span class="date">September 2026</span> — teaching resumes for Advanced Algorithms (M1).</li>
+        <li><span class="date">June 2026</span> — Ph.D. defense of A. Martin, whom I co-supervised.</li>
       </ul>
-      <button class="actus-bascule" id="bascule-actus" type="button" hidden>Voir toutes les actualités ↓</button>
+      <button class="news-toggle" id="news-toggle" type="button" hidden>Show all news ↓</button>
     </section>
 
     <section>
       <h2>Contact</h2>
-      <p>Bureau 000, bâtiment X — <a href="mailto:prenom.nom@univ-exemple.fr">prenom.nom@univ-exemple.fr</a></p>
-      <p><a href="divers.html">Toutes les coordonnées →</a></p>
+      <p>Office 000, Building X — <a href="mailto:prenom.nom@univ-exemple.fr">prenom.nom@univ-exemple.fr</a></p>
+      <p><a href="about.html">All contact details →</a></p>
     </section>
   </main>
   <footer>
-    <p class="liens-identite"><!-- remplacez par vos identifiants réels -->
-      <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
-      <a href="https://hal.science/">HAL</a>
-      <a href="https://scholar.google.com/">Google Scholar</a>
-      <a href="https://github.com/barraju">GitHub</a>
+    <p class="identity-links"><!-- replace with your real identifiers -->
+      <a href="https://orcid.org/0000-0000-0000-0000" rel="me">ORCID</a>
+      <a href="https://hal.science/" rel="me">HAL</a>
+      <a href="https://scholar.google.com/" rel="me">Google Scholar</a>
+      <a href="https://github.com/barraju" rel="me">GitHub</a>
     </p>
-    <p>© 2026 Jules BARRA — <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a></p>
+    <p><span data-last-updated></span></p>
+    <p>© 2026 Jules Barra — <a href="https://github.com/barraju/jbarra.github.io">website source code</a></p>
   </footer>
 </body>
 </html>

@@ -1,94 +1,128 @@
-/* cdurand.github.io — interactions légères, sans dépendance
-   1) bascule thème clair/sombre (mémorisée)  2) actualités repliables
-   3) filtre des publications                 4) copie du BibTeX */
+/* cdurand.github.io — lightweight interactions, no dependency
+   1) light/dark theme (persisted)  2) collapsible news
+   3) publication filters + search  4) copy BibTeX
+   5) active nav link               6) footer "last updated" */
 (function () {
   "use strict";
+  var root = document.documentElement;
 
-  /* ---------- 1. Thème clair / sombre ---------- */
-  var racine = document.documentElement;
-  var boutonTheme = document.getElementById("bascule-theme");
-
-  function themeEffectif() {
-    return racine.dataset.theme ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "sombre" : "clair");
+  /* 1. Theme */
+  var themeBtn = document.getElementById("theme-toggle");
+  function currentTheme() {
+    return root.dataset.theme ||
+      (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   }
-  function majBoutonTheme() {
-    if (boutonTheme) boutonTheme.textContent = themeEffectif() === "sombre" ? "☀️" : "🌙";
+  function paintThemeBtn() {
+    if (themeBtn) themeBtn.textContent = currentTheme() === "dark" ? "☀️" : "🌙";
   }
-  if (boutonTheme) {
-    majBoutonTheme();
-    boutonTheme.addEventListener("click", function () {
-      var suivant = themeEffectif() === "sombre" ? "clair" : "sombre";
-      racine.dataset.theme = suivant;
-      try { localStorage.setItem("theme", suivant); } catch (e) { /* stockage indisponible */ }
-      majBoutonTheme();
+  if (themeBtn) {
+    paintThemeBtn();
+    themeBtn.addEventListener("click", function () {
+      root.dataset.theme = currentTheme() === "dark" ? "light" : "dark";
+      try { localStorage.setItem("theme", root.dataset.theme); } catch (e) { /* storage unavailable */ }
+      paintThemeBtn();
     });
   }
 
-  /* ---------- 2. Actualités : voir tout / réduire ---------- */
-  var listeActus = document.getElementById("liste-actus");
-  var basculeActus = document.getElementById("bascule-actus");
-  if (listeActus && basculeActus) {
-    var visibles = 2;
-    var items = Array.prototype.slice.call(listeActus.children);
-    if (items.length > visibles) {
-      var replie = true;
-      items.slice(visibles).forEach(function (li) { li.hidden = true; });
-      basculeActus.hidden = false;
-      basculeActus.addEventListener("click", function () {
-        replie = !replie;
-        items.slice(visibles).forEach(function (li) { li.hidden = replie; });
-        basculeActus.textContent = replie ? "Voir toutes les actualités ↓" : "Réduire les actualités ↑";
+  /* 2. News: show the first VISIBLE items, toggle the rest */
+  var newsList = document.getElementById("news-list");
+  var newsBtn = document.getElementById("news-toggle");
+  if (newsList && newsBtn) {
+    var VISIBLE = 3;
+    var items = Array.prototype.slice.call(newsList.children);
+    if (items.length > VISIBLE) {
+      var collapsed = true;
+      items.slice(VISIBLE).forEach(function (li) { li.hidden = true; });
+      newsBtn.hidden = false;
+      newsBtn.addEventListener("click", function () {
+        collapsed = !collapsed;
+        items.slice(VISIBLE).forEach(function (li) { li.hidden = collapsed; });
+        newsBtn.textContent = collapsed ? "Show all news ↓" : "Show fewer news ↑";
       });
     }
   }
 
-  /* ---------- 3. Filtre des publications ---------- */
-  var filtres = document.querySelectorAll(".filtre");
-  var pubs = document.querySelectorAll(".pub[data-type]");
-  if (filtres.length > 0 && pubs.length > 0) {
-    filtres.forEach(function (bouton) {
-      bouton.addEventListener("click", function () {
-        filtres.forEach(function (b) { b.classList.toggle("actif", b === bouton); });
-        var cible = bouton.getAttribute("data-filtre");
-        pubs.forEach(function (p) {
-          p.hidden = (cible !== "toutes") && (p.getAttribute("data-type") !== cible);
-        });
+  /* 3. Publications: type filters + text search, combined */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filter"));
+  var pubs = Array.prototype.slice.call(document.querySelectorAll(".pub[data-type]"));
+  var searchBox = document.getElementById("pub-search");
+  var noResult = document.getElementById("no-result");
+  if (filterBtns.length > 0 && pubs.length > 0) {
+    var activeType = "all";
+    var query = "";
+    function applyPubs() {
+      var shown = 0;
+      pubs.forEach(function (p) {
+        var okType = activeType === "all" || p.getAttribute("data-type") === activeType;
+        var okQuery = !query || p.textContent.toLowerCase().indexOf(query) !== -1;
+        p.hidden = !(okType && okQuery);
+        if (okType && okQuery) shown++;
+      });
+      if (noResult) noResult.hidden = shown !== 0;
+    }
+    filterBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        filterBtns.forEach(function (x) { x.classList.toggle("active", x === b); });
+        activeType = b.getAttribute("data-filter") || "all";
+        applyPubs();
       });
     });
+    if (searchBox) {
+      searchBox.addEventListener("input", function () {
+        query = searchBox.value.trim().toLowerCase();
+        applyPubs();
+      });
+    }
   }
 
-  /* ---------- 4. Copier le BibTeX d'une publication ---------- */
+  /* 4. Copy BibTeX */
   document.addEventListener("click", function (ev) {
-    var bouton = ev.target.closest ? ev.target.closest(".copier-bibtex") : null;
-    if (!bouton) return;
-    var pub = bouton.closest(".pub");
-    var bloc = pub && pub.querySelector(".bibtex");
-    if (!bloc) return;
-    var texte = bloc.textContent.replace(/^\s+|\s+$/g, "");
-
-    function confirmation() {
-      var ancien = bouton.textContent;
-      bouton.textContent = "Copié ✓";
-      bouton.disabled = true;
-      window.setTimeout(function () { bouton.textContent = ancien; bouton.disabled = false; }, 1500);
+    var btn = ev.target.closest ? ev.target.closest(".copy-bibtex") : null;
+    if (!btn) return;
+    var pub = btn.closest(".pub");
+    var block = pub && pub.querySelector(".bibtex");
+    if (!block) return;
+    var text = block.textContent.replace(/^\s+|\s+$/g, "");
+    function done() {
+      var old = btn.textContent;
+      btn.textContent = "Copied ✓";
+      btn.disabled = true;
+      window.setTimeout(function () { btn.textContent = old; btn.disabled = false; }, 1500);
+    }
+    function fallback() {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      try { document.execCommand("copy"); done(); } catch (e) { /* silent */ }
+      document.body.removeChild(area);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(texte).then(confirmation, function () { secours(texte, confirmation); });
-    } else {
-      secours(texte, confirmation);
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  });
+
+  /* 5. Highlight the current page in the nav */
+  var here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  Array.prototype.forEach.call(document.querySelectorAll("nav a[href]"), function (a) {
+    if ((a.getAttribute("href") || "").toLowerCase() === here) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
     }
   });
 
-  function secours(texte, apres) {
-    var zone = document.createElement("textarea");
-    zone.value = texte;
-    zone.setAttribute("readonly", "");
-    zone.style.position = "fixed";
-    zone.style.opacity = "0";
-    document.body.appendChild(zone);
-    zone.select();
-    try { document.execCommand("copy"); apres(); } catch (e) { /* échec silencieux */ }
-    document.body.removeChild(zone);
+  /* 6. "Last updated" from the served file date */
+  var stamps = document.querySelectorAll("[data-last-updated]");
+  if (stamps.length > 0 && document.lastModified) {
+    var d = new Date(document.lastModified);
+    if (!isNaN(d.getTime())) {
+      var label = d.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
+      Array.prototype.forEach.call(stamps, function (el) {
+        el.textContent = "Last updated " + label + ".";
+      });
+    }
   }
 })();
