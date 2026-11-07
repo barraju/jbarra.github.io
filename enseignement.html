@@ -1,61 +1,77 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jules BARRA— enseignement</title>
+  <title>Jules BARRA — enseignement</title>
+  <meta name="description" content="Modules d'enseignement, ressources pour les étudiants et permanences de Jules Barra.">
+  <link rel="canonical" href="https://cdurand.github.io/enseignement.html">
+  <meta property="og:title" content="Jules BARRA — enseignement">
+  <meta property="og:description" content="Modules, ressources étudiantes et permanences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cdurand.github.io/enseignement.html">
+  <meta property="og:image" content="https://cdurand.github.io/assets/photo.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="sombre"||t==="clair"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  <a class="eviter" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="en-tete">
+      <a class="marque" href="index.html">Jules BARRA</a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="recherche.html">Recherche</a>
+        <a href="enseignement.html" class="actif" aria-current="page">Enseignement</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="divers.html">Divers</a>
+        <button id="bascule-theme" type="button" aria-label="Basculer entre thème clair et sombre">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu">
+    <h1>Enseignement</h1>
+    <p>Modules assurés en 2026–2027 (Université de Quelque Part, département informatique).</p>
 
-<header>
-  <div class="header-int">
-    <a class="logo" href="index.html"><span class="accent">Jules</span> BARRA</a>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="recherche.html">Recherche</a>
-      <a href="enseignement.html" class="actif">Enseignement</a>
-      <a href="publications.html">Publications</a>
-      <a href="cv.html">CV</a>
-      <a href="divers.html">Divers</a>
-    </nav>
-  </div>
-</header>
+    <h2>Cours en cours</h2>
+    <div class="tableau-defilant"><!-- défilement horizontal sur mobile -->
+      <table>
+        <thead>
+          <tr><th>Niveau</th><th>Module</th><th>Contenu</th><th>Volume</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L2</td><td>Algorithmique</td><td>tri, graphes, complexité</td><td>24h CM + 24h TD</td></tr>
+          <tr><td>L3</td><td>Réseaux</td><td>TCP/IP, sockets, protocoles</td><td>18h CM + 12h TD</td></tr>
+          <tr><td>M1</td><td>Apprentissage automatique</td><td>modèles, évaluation, projets</td><td>12h CM + 24h TP</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-<main>
-  <h1>Enseignement</h1>
-  <p class="lead">Modules assurés en 2026–2027 (Université de Quelque Part, département informatique).</p>
+    <h2>Ressources pour les étudiants</h2>
+    <p>Supports de cours, sujets de TP et corrigés : <a href="https://moodle.univ-exemple.fr">plateforme Moodle de l'université</a>.</p>
+    <p>Permanences : le jeudi, 14h–16h, bureau 000.</p>
 
-  <h2>Cours en cours</h2>
-  <table>
-    <thead>
-      <tr><th>Niveau</th><th>Module</th><th>Contenu</th><th>Volume</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>L2</td><td>Algorithmique</td><td>tri, graphes, complexité</td><td>24&nbsp;h CM + 24&nbsp;h TD</td></tr>
-      <tr><td>L3</td><td>Réseaux</td><td>TCP/IP, sockets, protocoles</td><td>18&nbsp;h CM + 12&nbsp;h TD</td></tr>
-      <tr><td>M1</td><td>Apprentissage automatique</td><td>modèles, évaluation, projets</td><td>12&nbsp;h CM + 24&nbsp;h TP</td></tr>
-    </tbody>
-  </table>
-
-  <h2>Ressources pour les étudiants</h2>
-  <ul>
-    <li>Supports de cours, sujets de TP et corrigés&nbsp;: plateforme Moodle de l'université.</li>
-    <li>Permanences&nbsp;: le jeudi, 14&nbsp;h–16&nbsp;h, bureau 000.</li>
-  </ul>
-
-  <h2>Années précédentes</h2>
-  <ul>
-    <li><strong>2025–2026</strong>&nbsp;: …</li>
-    <li><strong>2024–2025</strong>&nbsp;: …</li>
-  </ul>
-</main>
-
-<footer>
-  © <span id="annee">2026</span> Jules BARRA —
-  <a href="https://github.com/barraju/jbarra.github.io">code source du site</a>
-</footer>
-<script>document.getElementById("annee").textContent = new Date().getFullYear();</script>
-
+    <h2>Années précédentes</h2>
+    <ul>
+      <li>2025–2026 : …</li>
+      <li>2024–2025 : …</li>
+    </ul>
+  </main>
+  <footer>
+    <p class="liens-identite">
+      <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+      <a href="https://hal.science/">HAL</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="https://github.com/barraju">GitHub</a>
+    </p>
+    <p>© 2026 Jules BARRA — <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a></p>
+  </footer>
 </body>
 </html>

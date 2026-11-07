@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jules BARRA — divers</title>
+  <meta name="description" content="Coordonnées, ressources et activités collectives de Jules Barra.">
+  <link rel="canonical" href="https://cdurand.github.io/divers.html">
+  <meta property="og:title" content="Jules BARRA — divers">
+  <meta property="og:description" content="Coordonnées, ressources et activités collectives.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cdurand.github.io/divers.html">
+  <meta property="og:image" content="https://cdurand.github.io/assets/photo.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="sombre"||t==="clair"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  <a class="eviter" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="en-tete">
+      <a class="marque" href="index.html">Jules BARRA</a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="recherche.html">Recherche</a>
+        <a href="enseignement.html">Enseignement</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="divers.html" class="actif" aria-current="page">Divers</a>
+        <button id="bascule-theme" type="button" aria-label="Basculer entre thème clair et sombre">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu">
+    <h1>Divers</h1>
 
-<header>
-  <div class="header-int">
-    <a class="logo" href="index.html"><span class="accent">Jules</span> BARRA</a>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="recherche.html">Recherche</a>
-      <a href="enseignement.html">Enseignement</a>
-      <a href="publications.html">Publications</a>
-      <a href="cv.html">CV</a>
-      <a href="divers.html" class="actif">Divers</a>
-    </nav>
-  </div>
-</header>
+    <h2>Coordonnées</h2>
+    <dl class="dl">
+      <dt>Bureau</dt><dd>000, bâtiment X, campus A</dd>
+      <dt>Adresse</dt><dd>Université de Quelque Part, 1 rue de l'Exemple, 00000 Ville, France</dd>
+      <dt>Email</dt><dd><a href="mailto:prenom.nom@univ-exemple.fr">prenom.nom@univ-exemple.fr</a></dd>
+      <dt>Téléphone</dt><dd>+33 (0)1 23 45 67 89</dd>
+      <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0000-0000-0000">0000-0000-0000-0000</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/barraju">github.com/barraju</a></dd>
+      <dt>HAL</dt><dd><a href="https://hal.science/">Ma page HAL</a></dd>
+    </dl>
 
-<main>
-  <h1>Divers</h1>
+    <h2>Ressources</h2>
+    <ul>
+      <li><a href="assets/publications.bib">Mes références au format BibTeX</a></li>
+      <li>Modèles de documents de cours et outils que j'utilise : …</li>
+    </ul>
 
-  <h2>Coordonnées</h2>
-  <dl class="dl">
-    <dt>Bureau</dt><dd>000, bâtiment X, campus A</dd>
-    <dt>Adresse</dt><dd>Université de Quelque Part, 1 rue de l'Exemple, 00000 Ville, France</dd>
-    <dt>Email</dt><dd><code>prenom.nom@univ-exemple.fr</code></dd>
-    <dt>Téléphone</dt><dd>+33 (0)1 23 45 67 89</dd>
-    <dt>ORCID</dt><dd>0000-0000-0000-0000</dd>
-    <dt>GitHub</dt><dd><a href="https://github.com/barraju">github.com/barraju</a></dd>
-    <dt>HAL</dt><dd><a href="https://hal.science">Ma page HAL</a></dd>
-  </dl>
+    <h2>Activités collectives</h2>
+    <ul>
+      <li>Co-organisation de la journée d'étude «…».</li>
+      <li>Comités de programme : …</li>
+      <li>Relecture pour les revues …</li>
+    </ul>
 
-  <h2>Ressources</h2>
-  <ul>
-    <li><a href="assets/publications.bib">Mes références au format BibTeX</a></li>
-    <li>Modèles de documents de cours et outils que j'utilise&nbsp;: …</li>
-  </ul>
-
-  <h2>Activités collectives</h2>
-  <ul>
-    <li>Co-organisation de la journée d'étude «&nbsp;…&nbsp;».</li>
-    <li>Comités de programme&nbsp;: …</li>
-    <li>Relecture pour les revues …</li>
-  </ul>
-
-  <h2>Hors laboratoire</h2>
-  <p>Photographie argentique, randonnée, et relecture obstinée de vieux code.</p>
-</main>
-
-<footer>
-  © <span id="annee">2026</span> Jules BARRA —
-  <a href="https://github.com/barraju/jbarra.github.io">code source du site</a>
-</footer>
-<script>document.getElementById("annee").textContent = new Date().getFullYear();</script>
-
+    <h2>Hors laboratoire</h2>
+    <p>Photographie argentique, randonnée, et relecture obstinée de vieux code.</p>
+  </main>
+  <footer>
+    <p class="liens-identite">
+      <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+      <a href="https://hal.science/">HAL</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="https://github.com/barraju">GitHub</a>
+    </p>
+    <p>© 2026 Jules BARRA — <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a></p>
+  </footer>
 </body>
 </html>

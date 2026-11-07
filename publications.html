@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jules BARRA — publications</title>
+  <meta name="description" content="Publications de Jules Barra : articles de conférences et de revues, avec BibTeX téléchargeable.">
+  <link rel="canonical" href="https://cdurand.github.io/publications.html">
+  <meta property="og:title" content="Jules BARRA — publications">
+  <meta property="og:description" content="Articles de conférences et de revues, BibTeX téléchargeable.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cdurand.github.io/publications.html">
+  <meta property="og:image" content="https://cdurand.github.io/assets/photo.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="sombre"||t==="clair"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-
-<header>
-  <div class="header-int">
-    <a class="logo" href="index.html"><span class="accent">Jules</span> BARRA</a>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="recherche.html">Recherche</a>
-      <a href="enseignement.html">Enseignement</a>
-      <a href="publications.html" class="actif">Publications</a>
-      <a href="cv.html">CV</a>
-      <a href="divers.html">Divers</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <h1>Publications</h1>
-  <p class="lead">
-    Une liste à jour (et exportable) est aussi disponible sur
-    <a href="https://scholar.google.com">Google Scholar</a>,
-    <a href="https://hal.science">HAL</a> et
-    <a href="https://www.semanticscholar.org">Semantic Scholar</a>.
-    Toutes les références&nbsp;:
-    <a href="assets/publications.bib">BibTeX</a>.
-  </p>
-
-  <h2>2026</h2>
-  <div class="pub">
-    <p class="titre">Titre de l'article…</p>
-    <p class="auteurs">A. Martin, <span class="moi">J. Barra</span>, B. Dupont</p>
-    <p class="lieu">Conférence Exemple'26, 2026</p>
-    <div class="actions">
-      <a class="bouton" href="https://doi.org/10.0000/exemple">DOI</a>
-      <a class="bouton" href="assets/papiers/exemple26.pdf">PDF</a>
+  <a class="eviter" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="en-tete">
+      <a class="marque" href="index.html">Jules BARRA</a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="recherche.html">Recherche</a>
+        <a href="enseignement.html">Enseignement</a>
+        <a href="publications.html" class="actif" aria-current="page">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="divers.html">Divers</a>
+        <button id="bascule-theme" type="button" aria-label="Basculer entre thème clair et sombre">🌙</button>
+      </nav>
     </div>
-  </div>
-  
-</main>
+  </header>
+  <main id="contenu">
+    <h1>Publications</h1>
+    <p>Une liste à jour (et exportable) est aussi disponible sur
+      <a href="https://scholar.google.com/">Google Scholar</a>,
+      <a href="https://hal.science/">HAL</a> et
+      <a href="https://www.semanticscholar.org/">Semantic Scholar</a>.
+      Toutes les références : <a href="assets/publications.bib">BibTeX</a>.
+    </p>
 
-<footer>
-  © <span id="annee">2026</span> Jules BARRA —
-  <a href="https://github.com/barraju/jbarra.github.io">code source du site</a>
-</footer>
-<script>document.getElementById("annee").textContent = new Date().getFullYear();</script>
+    <div class="filtres" role="group" aria-label="Filtrer les publications par type">
+      <button class="filtre actif" type="button" data-filtre="toutes">Toutes</button>
+      <button class="filtre" type="button" data-filtre="conference">Conférences</button>
+      <button class="filtre" type="button" data-filtre="revue">Revues</button>
+    </div>
 
+    <h2>2026</h2>
+    <!-- Pour ajouter un article : copiez ce bloc <article>, adaptez data-type
+         ("conference" ou "revue") et le contenu du bloc .bibtex ci-dessous.
+         Le filtre et le bouton de copie s'adaptent automatiquement. -->
+    <article class="pub" data-type="conference">
+      <p class="titre">Titre de l'article…</p>
+      <p>A. Martin, <span class="moi">J. Barra</span>, B. Dupont</p>
+      <p class="lieu">Conférence Exemple'26, 2026</p>
+      <div class="actions">
+        <a class="bouton" href="https://doi.org/10.0000/exemple.2026">DOI</a>
+        <a class="bouton" href="assets/exemple2026.pdf">PDF</a>
+        <!-- Décommentez quand vous avez les liens réels :
+        <a class="bouton" href="https://arxiv.org/abs/…">arXiv</a>
+        <a class="bouton" href="https://github.com/…">Code</a>
+        <a class="bouton" href="assets/exemple2026-slides.pdf">Slides</a>
+        -->
+        <button class="bouton copier-bibtex" type="button">BibTeX</button>
+      </div>
+      <script type="text/plain" class="bibtex">@inproceedings{martin2026exemple,
+  title     = {Titre de l'article},
+  author    = {Martin, A. and Barra, J. and Dupont, B.},
+  booktitle = {Exemple'26},
+  year      = {2026}
+}</script>
+    </article>
+  </main>
+  <footer>
+    <p class="liens-identite">
+      <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+      <a href="https://hal.science/">HAL</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="https://github.com/barraju">GitHub</a>
+    </p>
+    <p>© 2026 Jules BARRA — <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a></p>
+  </footer>
 </body>
 </html>
