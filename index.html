@@ -1,94 +1,94 @@
-/* cdurand.github.io — interactions légères, sans dépendance
-   1) bascule thème clair/sombre (mémorisée)  2) actualités repliables
-   3) filtre des publications                 4) copie du BibTeX */
-(function () {
-  "use strict";
-
-  /* ---------- 1. Thème clair / sombre ---------- */
-  var racine = document.documentElement;
-  var boutonTheme = document.getElementById("bascule-theme");
-
-  function themeEffectif() {
-    return racine.dataset.theme ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "sombre" : "clair");
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jules BARRA — accueil</title>
+  <meta name="description" content="Page personnelle de Jules Barra, au LAGEPP (Université de Lyon) : recherche, publications, enseignement et CV.">
+  <link rel="canonical" href="https://cdurand.github.io/">
+  <meta property="og:title" content="Jules BARRA — accueil">
+  <meta property="og:description" content="Recherche, publications, enseignement et CV.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cdurand.github.io/">
+  <meta property="og:image" content="https://cdurand.github.io/assets/photo.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <!-- Si vous préférez zéro requête externe : supprimez les 3 lignes suivantes,
+       les polices système (Georgia / sans-serif) prendront le relais. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap">
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t==="sombre"||t==="clair"){document.documentElement.dataset.theme=t;}}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jules Barra",
+    "url": "https://cdurand.github.io/",
+    "image": "https://cdurand.github.io/assets/photo.jpg",
+    "jobTitle": "Doctorant",
+    "email": "mailto:prenom.nom@univ-exemple.fr",
+    "affiliation": { "@type": "Organization", "name": "LAGEPP (UMR0000), Université de Lyon" },
+    "sameAs": [
+      "https://orcid.org/0000-0000-0000-0000",
+      "https://github.com/barraju"
+    ]
   }
-  function majBoutonTheme() {
-    if (boutonTheme) boutonTheme.textContent = themeEffectif() === "sombre" ? "☀️" : "🌙";
-  }
-  if (boutonTheme) {
-    majBoutonTheme();
-    boutonTheme.addEventListener("click", function () {
-      var suivant = themeEffectif() === "sombre" ? "clair" : "sombre";
-      racine.dataset.theme = suivant;
-      try { localStorage.setItem("theme", suivant); } catch (e) { /* stockage indisponible */ }
-      majBoutonTheme();
-    });
-  }
+  </script>
+</head>
+<body>
+  <a class="eviter" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="en-tete">
+      <a class="marque" href="index.html">Jules BARRA</a>
+      <nav aria-label="Navigation principale">
+        <a href="index.html" class="actif" aria-current="page">Accueil</a>
+        <a href="recherche.html">Recherche</a>
+        <a href="enseignement.html">Enseignement</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="divers.html">Divers</a>
+        <button id="bascule-theme" type="button" aria-label="Basculer entre thème clair et sombre">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main id="contenu">
+    <section class="apercu">
+      <img class="portrait" src="assets/photo.jpg" alt="Photo de Jules Barra" width="150" height="150">
+      <div>
+        <p class="role">Doctorant</p>
+        <p class="affiliation">Université de Lyon — LAGEPP (UMR0000)</p>
+        <p class="accroche">Mes travaux portent sur …</p>
+        <p><a href="recherche.html">Mes recherches</a> · <a href="publications.html">Mes publications</a> · <a href="cv.html">Mon CV</a></p>
+      </div>
+    </section>
 
-  /* ---------- 2. Actualités : voir tout / réduire ---------- */
-  var listeActus = document.getElementById("liste-actus");
-  var basculeActus = document.getElementById("bascule-actus");
-  if (listeActus && basculeActus) {
-    var visibles = 2;
-    var items = Array.prototype.slice.call(listeActus.children);
-    if (items.length > visibles) {
-      var replie = true;
-      items.slice(visibles).forEach(function (li) { li.hidden = true; });
-      basculeActus.hidden = false;
-      basculeActus.addEventListener("click", function () {
-        replie = !replie;
-        items.slice(visibles).forEach(function (li) { li.hidden = replie; });
-        basculeActus.textContent = replie ? "Voir toutes les actualités ↓" : "Réduire les actualités ↑";
-      });
-    }
-  }
+    <section>
+      <h2>Actualités</h2>
+      <ul class="actus" id="liste-actus">
+        <li><span class="date">Novembre 2026</span> — notre article «…» est accepté à la conférence Exemple'26.</li>
+        <li><span class="date">Septembre 2026</span> — reprise des cours de Algorithmique avancée (M1).</li>
+        <li><span class="date">Juin 2026</span> — soutenance de thèse de A. Martin, que j'ai co-encadrée.</li>
+      </ul>
+      <button class="actus-bascule" id="bascule-actus" type="button" hidden>Voir toutes les actualités ↓</button>
+    </section>
 
-  /* ---------- 3. Filtre des publications ---------- */
-  var filtres = document.querySelectorAll(".filtre");
-  var pubs = document.querySelectorAll(".pub[data-type]");
-  if (filtres.length > 0 && pubs.length > 0) {
-    filtres.forEach(function (bouton) {
-      bouton.addEventListener("click", function () {
-        filtres.forEach(function (b) { b.classList.toggle("actif", b === bouton); });
-        var cible = bouton.getAttribute("data-filtre");
-        pubs.forEach(function (p) {
-          p.hidden = (cible !== "toutes") && (p.getAttribute("data-type") !== cible);
-        });
-      });
-    });
-  }
-
-  /* ---------- 4. Copier le BibTeX d'une publication ---------- */
-  document.addEventListener("click", function (ev) {
-    var bouton = ev.target.closest ? ev.target.closest(".copier-bibtex") : null;
-    if (!bouton) return;
-    var pub = bouton.closest(".pub");
-    var bloc = pub && pub.querySelector(".bibtex");
-    if (!bloc) return;
-    var texte = bloc.textContent.replace(/^\s+|\s+$/g, "");
-
-    function confirmation() {
-      var ancien = bouton.textContent;
-      bouton.textContent = "Copié ✓";
-      bouton.disabled = true;
-      window.setTimeout(function () { bouton.textContent = ancien; bouton.disabled = false; }, 1500);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(texte).then(confirmation, function () { secours(texte, confirmation); });
-    } else {
-      secours(texte, confirmation);
-    }
-  });
-
-  function secours(texte, apres) {
-    var zone = document.createElement("textarea");
-    zone.value = texte;
-    zone.setAttribute("readonly", "");
-    zone.style.position = "fixed";
-    zone.style.opacity = "0";
-    document.body.appendChild(zone);
-    zone.select();
-    try { document.execCommand("copy"); apres(); } catch (e) { /* échec silencieux */ }
-    document.body.removeChild(zone);
-  }
-})();
+    <section>
+      <h2>Contact</h2>
+      <p>Bureau 000, bâtiment X — <a href="mailto:prenom.nom@univ-exemple.fr">prenom.nom@univ-exemple.fr</a></p>
+      <p><a href="divers.html">Toutes les coordonnées →</a></p>
+    </section>
+  </main>
+  <footer>
+    <p class="liens-identite"><!-- remplacez par vos identifiants réels -->
+      <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a>
+      <a href="https://hal.science/">HAL</a>
+      <a href="https://scholar.google.com/">Google Scholar</a>
+      <a href="https://github.com/barraju">GitHub</a>
+    </p>
+    <p>© 2026 Jules BARRA — <a href="https://github.com/cdurand/cdurand.github.io">code source du site</a></p>
+  </footer>
+</body>
+</html>
