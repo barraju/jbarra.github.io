@@ -9,6 +9,7 @@ assets/publications.bib (bibliothèque standard uniquement).
   et la copie BibTeX continuent de fonctionner.
 - En cas de problème (marqueurs absents, bib vide), rien n'est écrit.
 
+A faire à chaque nouvelle publi
 Usage : python3 scripts/gen_publications.py [--bib CHEMIN] [--page CHEMIN]
 """
 
